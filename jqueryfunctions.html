@@ -4,11 +4,66 @@
     <meta charset="utf-8">
     <meta name="description" content="Experimenting with 18 jQuery Functions">
     <title>jQuery Functions</title>
-    <
+    <link rel="stylesheet" style="text/css" href="jqueryfunctions.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
 
+        $("img").hide();
+
+        $("button").click(function() {
+          $(this).hide();
+        });
+
+        $("#one").click(function() {
+          $(this).siblings().text("Oh no you didn't!");
+
+        });
+
+        $("#two").click(function() {
+          $("img").show();
+
+        });
+
+        $("#two").click(function() {
+          $("#two").siblings(function() {
+            $("p").slideUp("slow");
+          });
+
+        });
+
+
+        $("#reset").click(function() {
+          $("button").show();
+        });
+
+      });
+
+
+    </script>
   </head>
   <body>
+    <div id="wrapper">
+      <div class="row">
+        <button id="one">This is the 1st button</button>
+        <p>Click me to see something super awesome!</p>
+        <img src="http://n-host.cz/wp-content/uploads/2015/10/Emoticon_meme_Computer_Guy.png">
 
+      </div>
+      <div class="row">
+        <button id="two">This is the 2nd button</button>
+        <p>Click me to see something even cooler!</p>
+
+      </div>
+      <div class="row">
+        <button id="three">This is the 3rd button</button>
+        <p>Whatever you do...don't click this button...</p>
+
+      </div>
+
+      <button id="reset">Activate the Omega-13!</button>
+
+    </div>
   </body>
 
 </html>

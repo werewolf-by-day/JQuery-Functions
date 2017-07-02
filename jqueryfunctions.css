@@ -1,0 +1,29 @@
+* {
+  margin: 0px;
+  padding: 0px;
+
+}
+
+#wrapper {
+  width: 1025px;
+  height: 775px;
+  margin: 0px;
+  padding: 0px;
+  background-image: url("http://i.imgur.com/0e4dVVR.jpg");
+
+}
+
+.row {
+  margin: 0px;
+  padding: 100px;
+  color: white;
+}
+
+img {
+  width: 10%;
+  display: inline-block;
+}
+
+p{
+  display:inline-block;
+}
