@@ -9,10 +9,26 @@
     <script type="text/javascript">
       $(document).ready(function() {
 
+        $('img').click(function() {
+
+        var x = $(this).attr("data-alt-src");
+
+        var y = $(this).attr("src");
+
+        $(this).attr("src", x);
+
+        $(this).attr("data-alt-src", y);
+        });
+
         $("img").hide();
 
+        $(".row").before("<button class='new'>Wait..what..?</button>");
+        $(".new").hide();
+
         $("button").click(function() {
-          $(this).hide();
+          $(this).hide(function() {
+            $("#three").siblings().append("<img src='https://media.giphy.com/media/d2YWbtt6gIhaZfxK/giphy.gif'>");
+          });
         });
 
         $("#one").click(function() {
@@ -21,22 +37,30 @@
         });
 
         $("#two").click(function() {
-          $("img").show();
-
+            $("img").fadeIn(1500, function() {
+              $("#two").siblings().slideUp();
+            });
         });
 
-        $("#two").click(function() {
-          $("#two").siblings(function() {
-            $("p").slideUp("slow");
-          });
-
+        $("#three").click(function() {
+          $(this).siblings().html("<img src='https://media.giphy.com/media/d2YWbtt6gIhaZfxK/giphy.gif'><img src='https://media.giphy.com/media/d2YWbtt6gIhaZfxK/giphy.gif'><img src='https://media.giphy.com/media/d2YWbtt6gIhaZfxK/giphy.gif'><img src='https://media.giphy.com/media/d2YWbtt6gIhaZfxK/giphy.gif'><img src='https://media.giphy.com/media/d2YWbtt6gIhaZfxK/giphy.gif'><img src='https://media.giphy.com/media/d2YWbtt6gIhaZfxK/giphy.gif'>");
         });
+
+        $(".new").click(function() {
+          $(this).after("<img src='http://wallpapertvs.com/wp-content/uploads/2014/10/look-of-disapproval-16244-1920x1200.jpg'>");
+        });
+
 
 
         $("#reset").click(function() {
-          $("button").show();
+          $("button").show(function() {
+            $("p").show(function() {
+              $("img").fadeOut(function() {
+                $("p:first").text("Huh...that was weird...");
+              });
+            });
+          });
         });
-
       });
 
 
@@ -45,18 +69,18 @@
   <body>
     <div id="wrapper">
       <div class="row">
-        <button id="one">This is the 1st button</button>
-        <p>Click me to see something super awesome!</p>
-        <img src="http://n-host.cz/wp-content/uploads/2015/10/Emoticon_meme_Computer_Guy.png">
+        <button id="one">Click me!</button>
+        <p>Don't click this button!</p>
+        <img src="http://n-host.cz/wp-content/uploads/2015/10/Emoticon_meme_Computer_Guy.png" data-alt-src="http://vignette4.wikia.nocookie.net/thememechannel/images/6/67/Like_a_Boss.png/revision/latest?cb=20131104203534">
 
       </div>
       <div class="row">
-        <button id="two">This is the 2nd button</button>
-        <p>Click me to see something even cooler!</p>
+        <button id="two">This button is ok to click...I think...</button>
+        <p>I wonder what will happen...</p>
 
       </div>
       <div class="row">
-        <button id="three">This is the 3rd button</button>
+        <button id="three">DANGER</button>
         <p>Whatever you do...don't click this button...</p>
 
       </div>
